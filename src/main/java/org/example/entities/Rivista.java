@@ -18,4 +18,11 @@ public class Rivista extends Pubblicazione{
         super(titolo, annoDiPubblicazione, numeroPagine);
         this.periodicita = periodicita;
     }
+
+    @Override
+    public String toString() {
+        return "Rivista{" + super.toString() +
+                "periodicita=" + periodicita +
+                '}';
+    }
 }

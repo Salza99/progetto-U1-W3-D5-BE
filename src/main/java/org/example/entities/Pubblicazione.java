@@ -22,4 +22,13 @@ public abstract class Pubblicazione {
         this.annoDiPubblicazione = annoDiPubblicazione;
         this.numeroPagine = numeroPagine;
     }
+
+    @Override
+    public String toString() {
+        return
+                "isbn=" + isbn +
+                ", titolo='" + titolo + '\'' +
+                ", annoDiPubblicazione=" + annoDiPubblicazione +
+                ", numeroPagine=" + numeroPagine + " ";
+    }
 }

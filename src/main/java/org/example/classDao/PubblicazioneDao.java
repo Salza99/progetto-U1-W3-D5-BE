@@ -1,9 +1,12 @@
 package org.example.classDao;
 
+import org.example.entities.Libro;
 import org.example.entities.Pubblicazione;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class PubblicazioneDao {
     private final EntityManager em;
@@ -16,5 +19,27 @@ public class PubblicazioneDao {
         em.persist(p);
         transaction.commit();
         System.out.println("Pubblicazione aggiunto a database");
+    }
+    public void removePubblicazioneById(long id) {
+        Pubblicazione found = em.find(Pubblicazione.class, id);
+        try {
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            em.remove(found);
+            transaction.commit();
+            System.out.println("Pubblicazione eliminita");
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+    public Pubblicazione cercaPubblicazioneByIsbn(long isbn){
+
+          return em.find(Pubblicazione.class,isbn);
+
+    }
+    public List<Pubblicazione> cercaPubblicazioneByYear(int anno){
+        TypedQuery<Pubblicazione> searchByYear = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.annoDiPubblicazione = :anno", Pubblicazione.class);
+        searchByYear.setParameter("anno", anno);
+        return searchByYear.getResultList();
     }
 }
