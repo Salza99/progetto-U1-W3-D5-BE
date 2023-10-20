@@ -38,18 +38,18 @@ public class PubblicazioneDao {
 
     }
     public List<Pubblicazione> cercaPubblicazioneByYear(int anno){
-        TypedQuery<Pubblicazione> searchByYear = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.annoDiPubblicazione = :anno", Pubblicazione.class);
-        searchByYear.setParameter("anno", anno);
-        return searchByYear.getResultList();
+        TypedQuery<Pubblicazione> searchByYearQuery = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.annoDiPubblicazione = :anno", Pubblicazione.class);
+        searchByYearQuery.setParameter("anno", anno);
+        return searchByYearQuery.getResultList();
     }
     public List<Libro> cercaLibroByAutore(String autore){
-        TypedQuery<Libro> searchByAutore = em.createQuery("SELECT l FROM Libro l WHERE LOWER(l.autore) = LOWER(:autore)", Libro.class);
-        searchByAutore.setParameter("autore", autore);
-        return searchByAutore.getResultList();
+        TypedQuery<Libro> searchByAutoreQuery = em.createQuery("SELECT l FROM Libro l WHERE LOWER(l.autore) = LOWER(:autore)", Libro.class);
+        searchByAutoreQuery.setParameter("autore", autore);
+        return searchByAutoreQuery.getResultList();
     }
     public List<Pubblicazione> cercaPubblicazioneByPartialTitle(String search){
-        TypedQuery<Pubblicazione> searchByPartialTitle = em.createQuery("SELECT p FROM Pubblicazione p WHERE LOWER(p.titolo) LIKE LOWER(:search)", Pubblicazione.class);
-        searchByPartialTitle.setParameter("search","%" + search + "%");
-        return searchByPartialTitle.getResultList();
+        TypedQuery<Pubblicazione> searchByPartialTitleQuery = em.createQuery("SELECT p FROM Pubblicazione p WHERE LOWER(p.titolo) LIKE LOWER(:search)", Pubblicazione.class);
+        searchByPartialTitleQuery.setParameter("search","%" + search + "%");
+        return searchByPartialTitleQuery.getResultList();
     }
 }

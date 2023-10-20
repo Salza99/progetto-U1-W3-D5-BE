@@ -1,11 +1,9 @@
 package org.example;
 
+import org.example.classDao.PrestitoDao;
 import org.example.classDao.PubblicazioneDao;
 import org.example.classDao.UserDao;
-import org.example.entities.Libro;
-import org.example.entities.Pubblicazione;
-import org.example.entities.Rivista;
-import org.example.entities.User;
+import org.example.entities.*;
 import org.example.enumeratori.Generi;
 import org.example.enumeratori.Periodicita;
 import org.example.utils.JpaUtil;
@@ -13,6 +11,7 @@ import org.example.utils.JpaUtil;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -70,6 +69,45 @@ public class Application {
         System.out.println("----------------------Pubblicazione tramite titolo parziale---------------------");
         List<Pubblicazione> foundByPartialTitle = pd.cercaPubblicazioneByPartialTitle("sono il conte");
         foundByPartialTitle.forEach(System.out::println);
+        // inserisco dei prestiti per gli utenti
+        User aldo = ud.findUserByID(1);
+        User giovanni = ud.findUserByID(2);
+        User giacomo = ud.findUserByID(3);
+        // creo liste di pubblicazioni
+        /*Pubblicazione foundLA = pd.cercaPubblicazioneByIsbn(4);
+        Pubblicazione foundLB = pd.cercaPubblicazioneByIsbn(5);
+        Pubblicazione foundLC = pd.cercaPubblicazioneByIsbn(6);
+        Pubblicazione foundLD = pd.cercaPubblicazioneByIsbn(7);
+        Pubblicazione foundRA = pd.cercaPubblicazioneByIsbn(9);
+        Pubblicazione foundRB = pd.cercaPubblicazioneByIsbn(10);
+        List<Pubblicazione> lpa = new ArrayList<>();
+        lpa.add(foundLA);
+        lpa.add(foundLB);
+        lpa.add(foundLC);
+        lpa.add(foundRA);
+        List<Pubblicazione> lpb = new ArrayList<>();
+        lpb.add(foundLB);
+        lpb.add(foundRA);
+        lpb.add(foundRB);
+        List<Pubblicazione> lpc = new ArrayList<>();
+        lpc.add(foundLD);
+        List<Pubblicazione> lpd = new ArrayList<>();
+        lpd.add(foundLC);
+        lpd.add(foundRB);*/
+        // creo i prestiti
+        PrestitoDao prd = new PrestitoDao(em);
+        /*Prestito pA = new Prestito(aldo, lpa, LocalDate.of(2023, 9, 19));
+        Prestito pB = new Prestito(giovanni, lpb, LocalDate.of(2023, 7, 17));
+        Prestito pC = new Prestito(giacomo, lpc, LocalDate.of(2023, 7, 2));
+        Prestito pD = new Prestito(giacomo, lpd, LocalDate.of(2023, 10, 2));
+        prd.saveNewPrestito(pA);
+        prd.saveNewPrestito(pB);
+        prd.saveNewPrestito(pC);
+        prd.saveNewPrestito(pD);*/
+
+        List<Pubblicazione> foundByTessera = prd.findPubblicazioniByUser(3);
+        System.out.println("----------------------Pubblicazioni tramite Numero Tessera Utente---------------------");
+        foundByTessera.forEach(System.out::println);
     }
 }
 

@@ -27,11 +27,11 @@ public class Prestito {
     public Prestito() {
     }
 
-    public Prestito(User utente, List<Pubblicazione> elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzioneEffettiva) {
+    public Prestito(User utente, List<Pubblicazione> elementoPrestato, LocalDate dataInizioPrestito) {
         this.utente = utente;
         this.elementoPrestato = elementoPrestato;
         this.dataInizioPrestito = dataInizioPrestito;
         this.dataRestituzionePrevistaPrestito = dataInizioPrestito.plusDays(30);
-        this.dataRestituzioneEffettiva = dataRestituzioneEffettiva;
+
     }
 }
