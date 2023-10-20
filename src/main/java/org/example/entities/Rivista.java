@@ -3,8 +3,10 @@ package org.example.entities;
 import org.example.enumeratori.Periodicita;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "rivista")
 public class Rivista extends Pubblicazione{
 
     private Periodicita periodicita;

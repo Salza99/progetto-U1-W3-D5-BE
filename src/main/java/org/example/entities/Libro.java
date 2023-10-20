@@ -3,8 +3,10 @@ package org.example.entities;
 import org.example.enumeratori.Generi;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "libro")
 public class Libro extends Pubblicazione {
 
     private String autore;
