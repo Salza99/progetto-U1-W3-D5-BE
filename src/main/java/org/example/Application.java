@@ -51,13 +51,18 @@ public class Application {
         // rimuovo una pubblicazione
         //pd.removePubblicazioneById(11);
 
-        //cerco un libro e una rivista
+        //cerco un libro e una rivista con un anno
         List<Pubblicazione> foundRY = pd.cercaPubblicazioneByYear(1992);
         List<Pubblicazione> foundLY = pd.cercaPubblicazioneByYear(1997);
-        System.out.println("----------------------Rivista---------------------");
+        System.out.println("----------------------Rivista tramite anno---------------------");
         foundRY.forEach(System.out::println);
-        System.out.println("----------------------Libro---------------------");
+        System.out.println("----------------------Libro tramite anno---------------------");
         foundLY.forEach(System.out::println);
+
+        //Cerco un libro dall'autore
+        System.out.println("----------------------Libro tramite autore---------------------");
+        List<Libro> foundByAuthor = pd.cercaPubblicazioneByAutore("aldo baglio");
+        foundByAuthor.forEach(System.out::println);
     }
 }
 

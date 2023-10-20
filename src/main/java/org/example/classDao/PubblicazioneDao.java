@@ -42,4 +42,9 @@ public class PubblicazioneDao {
         searchByYear.setParameter("anno", anno);
         return searchByYear.getResultList();
     }
+    public List<Libro> cercaPubblicazioneByAutore(String autore){
+        TypedQuery<Libro> searchByAutore = em.createQuery("SELECT l FROM Libro l WHERE LOWER(l.autore) = LOWER(:autore)", Libro.class);
+        searchByAutore.setParameter("autore", autore);
+        return searchByAutore.getResultList();
+    }
 }
