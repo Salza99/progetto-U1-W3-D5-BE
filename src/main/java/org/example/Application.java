@@ -61,8 +61,15 @@ public class Application {
 
         //Cerco un libro dall'autore
         System.out.println("----------------------Libro tramite autore---------------------");
-        List<Libro> foundByAuthor = pd.cercaPubblicazioneByAutore("aldo baglio");
+        List<Libro> foundByAuthor = pd.cercaLibroByAutore("aldo baglio");
         foundByAuthor.forEach(System.out::println);
+        //Cerco una pubblicazione con il titolo e parziale
+        System.out.println("----------------------Pubblicazione tramite titolo---------------------");
+        List<Pubblicazione> foundByTitle = pd.cercaPubblicazioneByPartialTitle("le grandi battaglie di roma");
+        foundByTitle.forEach(System.out::println);
+        System.out.println("----------------------Pubblicazione tramite titolo parziale---------------------");
+        List<Pubblicazione> foundByPartialTitle = pd.cercaPubblicazioneByPartialTitle("sono il conte");
+        foundByPartialTitle.forEach(System.out::println);
     }
 }
 
