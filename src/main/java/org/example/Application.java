@@ -108,6 +108,16 @@ public class Application {
         List<Pubblicazione> foundByTessera = prd.findPubblicazioniByUser(3);
         System.out.println("----------------------Pubblicazioni tramite Numero Tessera Utente---------------------");
         foundByTessera.forEach(System.out::println);
+
+        // set di avvenuta restituzione di un prestito
+        Prestito foundPresA = prd.cercaPrestitoById(3);
+        //prd.setDataRestituzione(foundPresA, LocalDate.of(2023, 8, 21));
+
+
+
+        em.close();
+        efm.close();
+
     }
 }
 

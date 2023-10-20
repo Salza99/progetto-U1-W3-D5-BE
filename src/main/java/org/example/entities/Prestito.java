@@ -34,4 +34,46 @@ public class Prestito {
         this.dataRestituzionePrevistaPrestito = dataInizioPrestito.plusDays(30);
 
     }
+
+    public List<Pubblicazione> getElementoPrestato() {
+        return elementoPrestato;
+    }
+
+    public void setElementoPrestato(List<Pubblicazione> elementoPrestato) {
+        this.elementoPrestato = elementoPrestato;
+    }
+
+    public LocalDate getDataInizioPrestito() {
+        return dataInizioPrestito;
+    }
+
+    public void setDataInizioPrestito(LocalDate dataInizioPrestito) {
+        this.dataInizioPrestito = dataInizioPrestito;
+    }
+
+    public LocalDate getDataRestituzionePrevistaPrestito() {
+        return dataRestituzionePrevistaPrestito;
+    }
+
+
+
+    public LocalDate getDataRestituzioneEffettiva() {
+        return dataRestituzioneEffettiva;
+    }
+
+    public void setDataRestituzioneEffettiva(LocalDate dataRestituzioneEffettiva) {
+        this.dataRestituzioneEffettiva = dataRestituzioneEffettiva;
+    }
+
+    @Override
+    public String toString() {
+        return "Prestito{" +
+                "id=" + id +
+                ", utente=" + utente +
+                ", elementoPrestato=" + elementoPrestato +
+                ", dataInizioPrestito=" + dataInizioPrestito +
+                ", dataRestituzionePrevistaPrestito=" + dataRestituzionePrevistaPrestito +
+                ", dataRestituzioneEffettiva=" + dataRestituzioneEffettiva +
+                '}';
+    }
 }

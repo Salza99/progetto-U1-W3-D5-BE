@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classDao/PrestitoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classDao/PrestitoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classDao/PubblicazioneDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classDao/PubblicazioneDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Prestito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Prestito.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
